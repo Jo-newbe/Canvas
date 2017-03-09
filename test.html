@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		canvas {
+			border: 1px solid #000;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="canvas" width="800" height="600"></canvas>
+	<!-- <script src="animate.js"></script> -->
+	<script src="animate-1.0.0.js"></script>
+	<script>
+		function toRadian( angle ) {
+			return angle * Math.PI / 180;
+		}
+		function toAngle( radain ) {
+			return radain * 180 / Math.PI;
+		}
+		var canvas = document.querySelector( '#canvas' ),
+				ctx = canvas.getContext( '2d' );
+
+		var w = canvas.width,
+				h = canvas.height;
+
+		// animate( w / 2, h / 2, 150, toRadian( -30 ), toRadian( -150 ), toRadian( 2 ), true, 'slow' );
+		animate( {
+			x: w / 2,
+			y: h / 2,
+			r: 150,
+			start: toRadian( 0 ),
+			end: toRadian( 120 ),
+			step: toRadian( 1 ),
+			color: 'rgb( 255, 0, 0 )'
+		}, 'fast' );
+		animate( {
+			x: w / 2,
+			y: h / 2,
+			r: 150,
+			start: toRadian( 120 ),
+			end: toRadian( 240 ),
+			step: toRadian( 1 ),
+			color: 'rgb( 0, 0, 255 )'
+		}, 'fast' );
+		animate( {
+			x: w / 2,
+			y: h / 2,
+			r: 150,
+			start: toRadian( 240 ),
+			end: toRadian( 0 ),
+			step: toRadian( 1 ),
+			color: 'rgb( 0, 255, 0 )'
+		}, 'fast' );
+	</script>
+</body>
+</html>
